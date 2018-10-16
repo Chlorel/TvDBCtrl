@@ -15,7 +15,7 @@ namespace TestApp
 
         private async void FrmTest_Load(object sender, EventArgs e)
         {
-            string  TvDBAPI_KEY     = "GXL7IKVKOHZ3DM8R";
+            string  TvDBAPI_KEY     = "Enter valid API KEY Here";
             UC_TvDB Tc              = new UC_TvDB();
             
 
