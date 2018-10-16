@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{974646CF-DEBA-421F-B45C-98D504A4E07E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TvDBCtrl</RootNamespace>
+    <AssemblyName>TvDBCtrl</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\TvDBClient.cs" />
+    <Compile Include="Client\Configuration.cs" />
+    <Compile Include="Enums\AirDay.cs" />
+    <Compile Include="Enums\Graphics.cs" />
+    <Compile Include="Enums\QueryType.cs" />
+    <Compile Include="Enums\Range.cs" />
+    <Compile Include="Enums\Status.cs" />
+    <Compile Include="Objects\Models\Acteur.cs" />
+    <Compile Include="Objects\Models\Episode.cs" />
+    <Compile Include="Objects\Models\EpisodeSummary.cs" />
+    <Compile Include="Objects\Models\JsonErrors.cs" />
+    <Compile Include="Objects\Models\JwtToken.cs" />
+    <Compile Include="Objects\Models\Language.cs" />
+    <Compile Include="Objects\Models\PagingData.cs" />
+    <Compile Include="Objects\Models\Picture.cs" />
+    <Compile Include="Objects\Models\PicturesSummary.cs" />
+    <Compile Include="Objects\Models\RatingInfo.cs" />
+    <Compile Include="Objects\Models\SeriesSummary.cs" />
+    <Compile Include="Objects\Models\SeriesFull.cs" />
+    <Compile Include="Objects\Models\SeriesGraphics.cs" />
+    <Compile Include="Objects\Models\Update.cs" />
+    <Compile Include="Objects\Responses\_acteurs.cs" />
+    <Compile Include="Objects\Responses\_episodes.cs" />
+    <Compile Include="Objects\Responses\_episodesum.cs" />
+    <Compile Include="Objects\Responses\_jsonerrors.cs" />
+    <Compile Include="Objects\Responses\_language.cs" />
+    <Compile Include="Objects\Responses\_picturessum.cs" />
+    <Compile Include="Objects\Responses\_pictures.cs" />
+    <Compile Include="Objects\Responses\_serie1sum.cs" />
+    <Compile Include="Objects\Responses\_seriesum.cs" />
+    <Compile Include="Objects\Responses\_seriefull.cs" />
+    <Compile Include="Objects\Responses\_token.cs" />
+    <Compile Include="Objects\Responses\_update.cs" />
+    <Compile Include="Objects\Services\ActeurService.cs" />
+    <Compile Include="Objects\Services\EpisodesService.cs" />
+    <Compile Include="Objects\Services\PicturesService.cs" />
+    <Compile Include="Tools\GraphicsTools.cs" />
+    <Compile Include="Objects\Converters\DateTimeExtensions.cs" />
+    <Compile Include="Objects\Converters\EpochTimeConv.cs" />
+    <Compile Include="Objects\Converters\StringDateConv.cs" />
+    <Compile Include="Objects\Converters\TimeSpanConv.cs" />
+    <Compile Include="Objects\Exceptions\BadReponseException.cs" />
+    <Compile Include="Objects\Exceptions\NotAvailableException.cs" />
+    <Compile Include="Objects\Requests\Credentials.cs" />
+    <Compile Include="Objects\Requests\SerieFilter.cs" />
+    <Compile Include="Objects\Services\AuthService.cs" />
+    <Compile Include="Objects\Services\BaseService.cs" />
+    <Compile Include="Objects\Services\LanguageService.cs" />
+    <Compile Include="Objects\Services\SerieServices.cs" />
+    <Compile Include="Objects\Services\UpdateService.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\TextTools.cs" />
+    <Compile Include="UC_TvDB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_TvDB.Designer.cs">
+      <DependentUpon>UC_TvDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_TvDB.resx">
+      <DependentUpon>UC_TvDB.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Ressources\viewresult.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Ressources\loupe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ressources\TopRouge.png" />
+    <Content Include="Ressources\TopVert.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvDBCtrl", ".\TvDBCtrl\TvDBCtrl.csproj", "{974646CF-DEBA-421F-B45C-98D504A4E07E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvDBCtrl_Test", ".\TvDBCtrl.Test\TvDBCtrl_Test.csproj", "{963B5D4E-9463-42ED-84F1-0A25C1C66A75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{974646CF-DEBA-421F-B45C-98D504A4E07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974646CF-DEBA-421F-B45C-98D504A4E07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974646CF-DEBA-421F-B45C-98D504A4E07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974646CF-DEBA-421F-B45C-98D504A4E07E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963B5D4E-9463-42ED-84F1-0A25C1C66A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963B5D4E-9463-42ED-84F1-0A25C1C66A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963B5D4E-9463-42ED-84F1-0A25C1C66A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963B5D4E-9463-42ED-84F1-0A25C1C66A75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F20936D-1A77-47AA-8239-2E19D113C99B}
+	EndGlobalSection
+EndGlobal
