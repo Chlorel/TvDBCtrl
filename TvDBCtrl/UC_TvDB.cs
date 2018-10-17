@@ -143,6 +143,10 @@ namespace TvDBCtrl
         private Int32       Ctrl_Saison;
 
         Timer InitClient;
+
+        /// <summary>
+        /// UC_TvDB () Main initialisation for the custom control
+        /// </summary>
         public UC_TvDB()
         {
             InitializeComponent ();
@@ -180,6 +184,11 @@ namespace TvDBCtrl
             }
         }
 
+        /// <summary>
+        /// InitClient_Tick : timer handled function only activated at runtime so long no valid APIKey is entered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void InitClient_Tick                  ( object sender, EventArgs e )
         {
             if (!string.IsNullOrEmpty(TvDB_Key))
@@ -226,6 +235,8 @@ namespace TvDBCtrl
                 }
             }
         }
+
+        public event EventHandler SerieSearchDone;
 
         private async void BtSearch_Click                   ( object sender, EventArgs e )
         {
@@ -277,12 +288,15 @@ namespace TvDBCtrl
                     LvResult.Items.Add(Lvi);
                     LblStatus.Text = ""
 ;                }
+                SerieSearchDone?.Invoke(sender, e);
             }
             else
             {
                 LblStatus.Text = "Non trouvé !";
             }
         }
+
+        public event EventHandler EpisodesSearchDone;
 
         private async void BtSearchSaisEpi_Click            ( object sender, EventArgs e )
         {
@@ -310,6 +324,8 @@ namespace TvDBCtrl
 
             BtView.Visible      = true;
             LblStatus.Text      = "";
+            EpisodesSearchDone?.Invoke(sender, e);
+
         }
 
         private void BtView_Click                           ( object sender, EventArgs e )
@@ -350,6 +366,8 @@ namespace TvDBCtrl
             }
         }
 
+        public event EventHandler SeriesRetrieveDone;
+
         private async void LvResult_SelectedIndexChanged    ( object sender, EventArgs e )
         {
             if (LvResult.SelectedItems.Count == 1)
@@ -376,6 +394,8 @@ namespace TvDBCtrl
 
                 Serie                       = await Client.Series.GetSeries(SerieID, ToGet);
                 PnlSaiEpi.Visible = true;
+
+                SeriesRetrieveDone?.Invoke(sender, e);
             }
         }
 
