@@ -16,6 +16,7 @@ namespace TestApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            CParams.AppPath = Application.StartupPath;
             Application.Run(new FrmTest());
         }
     }

@@ -121,7 +121,13 @@ namespace TvDBCtrl
         public bool         Ctrl_IsReady    { get; internal set; }
 
         /// <summary>
-        /// Liste des langues supporté par le client TvDB
+        /// Liste des langues supporté par le client TvDB sous forme de list de structure
+        /// </summary>
+        [Category("TvDB Control"), Browsable(true), Description("La liste complete des langues supportée par The TvDB")]
+        public List<Language> Ctrl_Languages { get; internal set; }
+
+        /// <summary>
+        /// Liste des langues supporté par le client TvDB 
         /// </summary>
         [Category("TvDB Control"), Browsable(false), Description("Diffuse la liste des langues supporté par TvDB")]
         public List<string> Languages     { get; internal set; }
@@ -412,11 +418,16 @@ namespace TvDBCtrl
 
         public async Task<bool> CheckTvDB_APIKey ( string APIKey )
         {
-            TvDBClient _client = new TvDBClient();
+            TvDBClient _client  = new TvDBClient();
+            bool        bResult = false;
 
-            bool bResult = false;
-            bResult = await _client.Authentication.CheckCredentials(APIKey);
-            
+            bResult         = await _client.Authentication.CheckCredentials(APIKey);
+            if (bResult)
+            {
+                bResult         = await _client.SetAPIKey(APIKey);
+                Ctrl_Languages  = await _client.Langues.GetLanguage();
+            }
+
             return bResult;
         }
     }

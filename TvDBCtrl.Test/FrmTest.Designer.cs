@@ -28,10 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTest));
             this.PgViewCtrl = new System.Windows.Forms.PropertyGrid();
             this.BtAfficher = new System.Windows.Forms.Button();
             this.uC_TvDB1 = new TvDBCtrl.UC_TvDB();
             this.CmbSelect = new System.Windows.Forms.ComboBox();
+            this.PnlGetAPIKey = new System.Windows.Forms.Panel();
+            this.PnlTvDBLng = new System.Windows.Forms.Panel();
+            this.BtOK = new System.Windows.Forms.Button();
+            this.CmbAPILng = new System.Windows.Forms.ComboBox();
+            this.LblAPILng = new System.Windows.Forms.Label();
+            this.BtAPIKey = new System.Windows.Forms.Button();
+            this.TxtAPIKey = new System.Windows.Forms.TextBox();
+            this.LblAPIKey = new System.Windows.Forms.Label();
+            this.IlMain = new System.Windows.Forms.ImageList(this.components);
+            this.PbKey = new System.Windows.Forms.PictureBox();
+            this.PnlGetAPIKey.SuspendLayout();
+            this.PnlTvDBLng.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbKey)).BeginInit();
             this.SuspendLayout();
             // 
             // PgViewCtrl
@@ -86,11 +101,103 @@
             this.CmbSelect.TabIndex = 3;
             this.CmbSelect.SelectedIndexChanged += new System.EventHandler(this.CmbSelect_SelectedIndexChanged);
             // 
+            // PnlGetAPIKey
+            // 
+            this.PnlGetAPIKey.Controls.Add(this.PbKey);
+            this.PnlGetAPIKey.Controls.Add(this.PnlTvDBLng);
+            this.PnlGetAPIKey.Controls.Add(this.BtAPIKey);
+            this.PnlGetAPIKey.Controls.Add(this.TxtAPIKey);
+            this.PnlGetAPIKey.Controls.Add(this.LblAPIKey);
+            this.PnlGetAPIKey.Location = new System.Drawing.Point(11, 12);
+            this.PnlGetAPIKey.Name = "PnlGetAPIKey";
+            this.PnlGetAPIKey.Size = new System.Drawing.Size(834, 348);
+            this.PnlGetAPIKey.TabIndex = 4;
+            // 
+            // PnlTvDBLng
+            // 
+            this.PnlTvDBLng.Controls.Add(this.BtOK);
+            this.PnlTvDBLng.Controls.Add(this.CmbAPILng);
+            this.PnlTvDBLng.Controls.Add(this.LblAPILng);
+            this.PnlTvDBLng.Location = new System.Drawing.Point(250, 124);
+            this.PnlTvDBLng.Name = "PnlTvDBLng";
+            this.PnlTvDBLng.Size = new System.Drawing.Size(334, 62);
+            this.PnlTvDBLng.TabIndex = 7;
+            // 
+            // BtOK
+            // 
+            this.BtOK.Location = new System.Drawing.Point(241, 19);
+            this.BtOK.Name = "BtOK";
+            this.BtOK.Size = new System.Drawing.Size(75, 23);
+            this.BtOK.TabIndex = 2;
+            this.BtOK.Text = "Save";
+            this.BtOK.UseVisualStyleBackColor = true;
+            this.BtOK.Click += new System.EventHandler(this.BtOK_Click);
+            // 
+            // CmbAPILng
+            // 
+            this.CmbAPILng.FormattingEnabled = true;
+            this.CmbAPILng.Location = new System.Drawing.Point(105, 19);
+            this.CmbAPILng.Name = "CmbAPILng";
+            this.CmbAPILng.Size = new System.Drawing.Size(121, 21);
+            this.CmbAPILng.TabIndex = 1;
+            this.CmbAPILng.SelectedIndexChanged += new System.EventHandler(this.CmbAPILng_SelectedIndexChanged);
+            // 
+            // LblAPILng
+            // 
+            this.LblAPILng.AutoSize = true;
+            this.LblAPILng.Location = new System.Drawing.Point(16, 22);
+            this.LblAPILng.Name = "LblAPILng";
+            this.LblAPILng.Size = new System.Drawing.Size(80, 13);
+            this.LblAPILng.TabIndex = 0;
+            this.LblAPILng.Text = "User Language";
+            // 
+            // BtAPIKey
+            // 
+            this.BtAPIKey.Location = new System.Drawing.Point(509, 73);
+            this.BtAPIKey.Name = "BtAPIKey";
+            this.BtAPIKey.Size = new System.Drawing.Size(75, 23);
+            this.BtAPIKey.TabIndex = 5;
+            this.BtAPIKey.Text = "Checkout";
+            this.BtAPIKey.UseVisualStyleBackColor = true;
+            this.BtAPIKey.Click += new System.EventHandler(this.BtAPIKey_Click);
+            // 
+            // TxtAPIKey
+            // 
+            this.TxtAPIKey.Location = new System.Drawing.Point(355, 75);
+            this.TxtAPIKey.Name = "TxtAPIKey";
+            this.TxtAPIKey.Size = new System.Drawing.Size(121, 20);
+            this.TxtAPIKey.TabIndex = 6;
+            // 
+            // LblAPIKey
+            // 
+            this.LblAPIKey.AutoSize = true;
+            this.LblAPIKey.Location = new System.Drawing.Point(245, 78);
+            this.LblAPIKey.Name = "LblAPIKey";
+            this.LblAPIKey.Size = new System.Drawing.Size(101, 13);
+            this.LblAPIKey.TabIndex = 0;
+            this.LblAPIKey.Text = "Enter TvDB APIKey";
+            // 
+            // IlMain
+            // 
+            this.IlMain.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IlMain.ImageStream")));
+            this.IlMain.TransparentColor = System.Drawing.Color.Transparent;
+            this.IlMain.Images.SetKeyName(0, "coche19.png");
+            this.IlMain.Images.SetKeyName(1, "croix19.png");
+            // 
+            // PbKey
+            // 
+            this.PbKey.Location = new System.Drawing.Point(483, 75);
+            this.PbKey.Name = "PbKey";
+            this.PbKey.Size = new System.Drawing.Size(19, 19);
+            this.PbKey.TabIndex = 8;
+            this.PbKey.TabStop = false;
+            // 
             // FrmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 372);
+            this.Controls.Add(this.PnlGetAPIKey);
             this.Controls.Add(this.CmbSelect);
             this.Controls.Add(this.BtAfficher);
             this.Controls.Add(this.PgViewCtrl);
@@ -98,6 +205,11 @@
             this.Name = "FrmTest";
             this.Text = "FrmTest";
             this.Load += new System.EventHandler(this.FrmTest_Load);
+            this.PnlGetAPIKey.ResumeLayout(false);
+            this.PnlGetAPIKey.PerformLayout();
+            this.PnlTvDBLng.ResumeLayout(false);
+            this.PnlTvDBLng.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbKey)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -108,6 +220,16 @@
         private System.Windows.Forms.PropertyGrid PgViewCtrl;
         private System.Windows.Forms.Button BtAfficher;
         private System.Windows.Forms.ComboBox CmbSelect;
+        private System.Windows.Forms.Panel PnlGetAPIKey;
+        private System.Windows.Forms.Panel PnlTvDBLng;
+        private System.Windows.Forms.Button BtOK;
+        private System.Windows.Forms.ComboBox CmbAPILng;
+        private System.Windows.Forms.Label LblAPILng;
+        private System.Windows.Forms.Button BtAPIKey;
+        private System.Windows.Forms.TextBox TxtAPIKey;
+        private System.Windows.Forms.Label LblAPIKey;
+        private System.Windows.Forms.ImageList IlMain;
+        private System.Windows.Forms.PictureBox PbKey;
     }
 }
 

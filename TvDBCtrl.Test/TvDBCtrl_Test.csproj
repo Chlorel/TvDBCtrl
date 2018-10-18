@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CParams.cs" />
     <Compile Include="FrmTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +104,9 @@
       <Project>{974646cf-deba-421f-b45c-98d504a4e07e}</Project>
       <Name>UControlTvDB</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ressources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
