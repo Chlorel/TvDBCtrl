@@ -249,7 +249,7 @@
             this.CmbLangue.FormattingEnabled = true;
             this.CmbLangue.Location = new System.Drawing.Point(61, 42);
             this.CmbLangue.Name = "CmbLangue";
-            this.CmbLangue.Size = new System.Drawing.Size(46, 21);
+            this.CmbLangue.Size = new System.Drawing.Size(83, 21);
             this.CmbLangue.TabIndex = 9;
             this.CmbLangue.SelectedIndexChanged += new System.EventHandler(this.CmbLangue_SelectedIndexChanged);
             // 

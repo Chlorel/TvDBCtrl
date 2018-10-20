@@ -163,101 +163,103 @@ namespace TvDBCtrl.Objects.Services
                     Serie.Acteurs = await Casting.GetActors(SeriesID);
                 }
 
-                if (SRange.HasFlag(Range.ImgPosters))
+                if (GCount != null)
                 {
-                    if (GCount.poster > 0)
+                    if (SRange.HasFlag(Range.ImgPosters))
                     {
-                        SGrapics.Posters = await Pictures.GetPictures(SeriesID, Graphics.Posters);
+                        if (GCount.poster > 0)
+                        {
+                            SGrapics.Posters    = await Pictures.GetPictures(SeriesID, Graphics.Posters);
 
-                        Picture poster = SGrapics.Posters.OrderByDescending(item => item.RatingsInfos.Average)
+                            Picture     poster  = SGrapics.Posters.OrderByDescending(item => item.RatingsInfos.Average)
                                                         .ThenByDescending(item => item.RatingsInfos.Count)
                                                         .ThenByDescending(item => item.LanguageID)
                                                         .FirstOrDefault();
-                        SGrapics.Poster = poster?.FileName;
+                            SGrapics.Poster     = poster?.FileName;
+                        }
+                        else
+                        {
+                            SGrapics.Posters    = new List<Picture>();
+                            SGrapics.Poster     = "";
+                        }
                     }
-                    else
-                    {
-                        SGrapics.Posters = new List<Picture>();
-                        SGrapics.Poster = "";
-                    }
-                }
 
-                if (SRange.HasFlag(Range.ImgFanart))
-                {
-                    if (GCount.fanart > 0)
+                    if (SRange.HasFlag(Range.ImgFanart))
                     {
-                        SGrapics.Fanarts = await Pictures.GetPictures(SeriesID, Graphics.Fanart);
+                        if (GCount.fanart > 0)
+                        {
+                            SGrapics.Fanarts    = await Pictures.GetPictures(SeriesID, Graphics.Fanart);
 
-                        Picture fanart = SGrapics.Fanarts.OrderByDescending(item => item.RatingsInfos.Average)
+                            Picture     fanart  = SGrapics.Fanarts.OrderByDescending(item => item.RatingsInfos.Average)
                                                         .ThenByDescending(item => item.RatingsInfos.Count)
                                                         .ThenByDescending(item => item.LanguageID)
                                                         .FirstOrDefault();
-                        SGrapics.Fanart = fanart?.FileName;
+                            SGrapics.Fanart     = fanart?.FileName;
+                        }
+                        else
+                        {
+                            SGrapics.Fanarts    = new List<Picture>();
+                            SGrapics.Fanart     = "";
+                        }
                     }
-                    else
-                    {
-                        SGrapics.Fanarts = new List<Picture>();
-                        SGrapics.Fanart = "";
-                    }
-                }
 
-                if (SRange.HasFlag(Range.ImgSeason))
-                {
-                    if (GCount.season > 0)
+                    if (SRange.HasFlag(Range.ImgSeason))
                     {
-                        SGrapics.Seasons = await Pictures.GetPictures(SeriesID, Graphics.Season);
+                        if (GCount.season > 0)
+                        {
+                            SGrapics.Seasons    = await Pictures.GetPictures(SeriesID, Graphics.Season);
 
-                        Picture season = SGrapics.Seasons.OrderByDescending(item => item.RatingsInfos.Average)
+                            Picture     season  = SGrapics.Seasons.OrderByDescending(item => item.RatingsInfos.Average)
                                                         .ThenByDescending(item => item.RatingsInfos.Count)
                                                         .ThenByDescending(item => item.LanguageID)
                                                         .FirstOrDefault();
-                        SGrapics.Season = season?.FileName;
+                            SGrapics.Season     = season?.FileName;
+                        }
+                        else
+                        {
+                            SGrapics.Seasons    = new List<Picture>();
+                            SGrapics.Season     = "";
+                        }
                     }
-                    else
-                    {
-                        SGrapics.Seasons = new List<Picture>();
-                        SGrapics.Season = "";
-                    }
-                }
 
-                if (SRange.HasFlag(Range.ImgSeasonWide))
-                {
-                    if (GCount.seasonwide > 0)
+                    if (SRange.HasFlag(Range.ImgSeasonWide))
                     {
-                        SGrapics.SeasonWides = await Pictures.GetPictures(SeriesID, Graphics.SeasonWide);
+                        if (GCount.seasonwide > 0)
+                        {
+                            SGrapics.SeasonWides    = await Pictures.GetPictures(SeriesID, Graphics.SeasonWide);
 
-                        Picture seasonwide = SGrapics.SeasonWides.OrderByDescending(item => item.RatingsInfos.Average)
+                            Picture     seasonwide  = SGrapics.SeasonWides.OrderByDescending(item => item.RatingsInfos.Average)
                                                         .ThenByDescending(item => item.RatingsInfos.Count)
                                                         .ThenByDescending(item => item.LanguageID)
                                                         .FirstOrDefault();
-                        SGrapics.SeasonWide = seasonwide?.FileName;
+                            SGrapics.SeasonWide     = seasonwide?.FileName;
+                        }
+                        else
+                        {
+                            SGrapics.SeasonWides    = new List<Picture>();
+                            SGrapics.SeasonWide     = "";
+                        }
                     }
-                    else
-                    {
-                        SGrapics.SeasonWides = new List<Picture>();
-                        SGrapics.SeasonWide = "";
-                    }
-                }
 
-                if (SRange.HasFlag(Range.ImgSeries))
-                {
-                    if (GCount.series > 0)
+                    if (SRange.HasFlag(Range.ImgSeries))
                     {
-                        SGrapics.Series = await Pictures.GetPictures(SeriesID, Graphics.Series);
+                        if (GCount.series > 0)
+                        {
+                            SGrapics.Series         = await Pictures.GetPictures(SeriesID, Graphics.Series);
 
-                        Picture serie = SGrapics.Series.OrderByDescending(item => item.RatingsInfos.Average)
+                            Picture     serie       = SGrapics.Series.OrderByDescending(item => item.RatingsInfos.Average)
                                                         .ThenByDescending(item => item.RatingsInfos.Count)
                                                         .ThenByDescending(item => item.LanguageID)
                                                         .FirstOrDefault();
-                        SGrapics.Serie = serie?.FileName;
-                    }
-                    else
-                    {
-                        SGrapics.Series = new List<Picture>();
-                        SGrapics.Serie = "";
+                            SGrapics.Serie      = serie?.FileName;
+                        }
+                        else
+                        {
+                            SGrapics.Series     = new List<Picture>();
+                            SGrapics.Serie      = "";
+                        }
                     }
                 }
-
                 Serie.Graphics = SGrapics;
             }
             return Serie;

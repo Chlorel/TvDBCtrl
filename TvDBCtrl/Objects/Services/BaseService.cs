@@ -31,7 +31,7 @@ namespace TvDBCtrl.Objects.Services
             {
                 if (ApiConfig.UserLanguage != null)
                 {
-                    if (ApiConfig.UserLanguage.abbreviation.ToUpper() != "en")
+                    if (ApiConfig.UserLanguage.abbreviation != "en")
                     {
                         client.DefaultRequestHeaders.Add("Accept-Language", ApiConfig.UserLanguage.abbreviation.ToUpper() + " ");
                     }

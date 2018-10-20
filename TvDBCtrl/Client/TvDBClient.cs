@@ -128,11 +128,14 @@ namespace TvDBCtrl.Client
                 LanguagesList   = await Langues.GetLanguage();
                 foreach (Language Lng in LanguagesList)
                 {
-                    ILanguages.Add(Lng.abbreviation.ToUpper(), Lng);
+                    // Fill Language dictonary
+                    ILanguages.Add(Lng.abbreviation, Lng);
+                    // Set Default Language
                     if (Lng.abbreviation.ToLower() == "en")
                     {
                         ApiConfig.SetDefaultLanguage(Lng);
                     }
+                    // Set User Language
                     if (!string.IsNullOrEmpty(_languageName))
                     {
                         if (Lng.abbreviation.ToUpper() == _languageName.ToUpper())
@@ -150,16 +153,11 @@ namespace TvDBCtrl.Client
         /// <summary>
         /// List Out the allowed Languages
         /// </summary>
-        public List<string> Languages
+        public List<Language> Languages
         {
             get
             {
-                List<string> _Languages = new List<string>();
-                foreach (Language Lng in LanguagesList)
-                {
-                    _Languages.Add(Lng.abbreviation.ToUpper());
-                }
-                return _Languages;
+                return LanguagesList;
             }
         }
 
@@ -170,16 +168,16 @@ namespace TvDBCtrl.Client
         {
             get
             {
-                return ApiConfig.UserLanguage.abbreviation.ToUpper();
+                return ApiConfig.UserLanguage.abbreviation;
             }
             set
             {
                 _languageName   = value;
                 if (ILanguages != null)
                 {
-                    if (ILanguages.ContainsKey(_languageName.ToUpper()))
+                    if (ILanguages.ContainsKey(_languageName))
                     {
-                        _language   = ILanguages[_languageName.ToUpper()];
+                        _language   = ILanguages[_languageName];
                         ApiConfig.SetLanguage(_language);
                     }
                 }

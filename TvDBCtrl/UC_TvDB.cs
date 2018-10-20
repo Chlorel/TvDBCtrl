@@ -208,11 +208,19 @@ namespace TvDBCtrl
                     if (Client.Languages.Count > 0)
                     {
                         List<TComboLangue>  LngType = new List<TComboLangue>();
-                        Languages                   = new List<string>();
-                        foreach (string Lng in Client.Languages)
+                        Language            CurLng  = new Language();
+                        Ctrl_Languages              = new List<Language>();
+                        foreach (Language Lng in Client.Languages)
                         {
-                            LngType.Add(new TComboLangue() { Name = Lng.ToUpper(), Value = Lng });
-                            Languages.Add(Lng);
+                            LngType.Add(new TComboLangue() { Name = Lng.name, Value = Lng });
+                            Ctrl_Languages.Add(Lng);
+
+                            if (!string.IsNullOrEmpty(this.TvDBAPILng) && (Lng.abbreviation.ToUpper() == this.TvDBAPILng.ToUpper()))
+                            {
+                                Client.Language = this.TvDBAPILng;
+                                CurLng          = Lng;
+                            }
+
                         }
 
                         this.CmbLangue.DataSource       = LngType;
@@ -220,12 +228,10 @@ namespace TvDBCtrl
                         this.CmbLangue.ValueMember      = "Value";
                         this.CmbLangue.DropDownStyle    = ComboBoxStyle.DropDownList;
 
-                        if ( !string.IsNullOrEmpty(this.TvDBAPILng) )
+                        if (!string.IsNullOrEmpty(this.TvDBAPILng))
                         {
-                            CmbLangue.Text = this.TvDBAPILng.ToUpper();
-                            Client.Language = TvDBAPILng.ToUpper();
+                            CmbLangue.Text = CurLng.name;
                         }
-                        
 
                         CmbLangue.Enabled = true;
                     }
@@ -346,7 +352,8 @@ namespace TvDBCtrl
             int SelIndex    = CmbLangue.SelectedIndex;
             if (Ctrl_IsReady == true)
             {
-                TvDBAPILng = CmbLangue.Text;           // ((Language)CmbLangue.Items[SelIndex]).abbreviation;
+                Language Sel    = (Language)CmbLangue.SelectedValue;
+                TvDBAPILng      = Sel.abbreviation;           // ((Language)CmbLangue.Items[SelIndex]).abbreviation;
                 Client.Language = TvDBAPILng;
             }
         }
@@ -435,7 +442,7 @@ namespace TvDBCtrl
     public class TComboLangue
     {
         public string       Name    { get; set; }
-        public string       Value   { get; set; }
+        public Language     Value   { get; set; }
     }
 
     public class TComboView

@@ -31,9 +31,18 @@ namespace TvDBCtrl.Objects.Services
             _acteurs                result      = JsonConvert.DeserializeObject<_acteurs>(jsonData);
             JsonErrors              errors      = JsonConvert.DeserializeObject<_jsonerrors>(jsonData).Errors;
 
-            Acteurs.AddRange(result.Data);
+            if (result.Data != null)
+            {
+                List<Acteur> _Acteurs = new List<Acteur>();
+                _Acteurs.AddRange(result.Data);
+                Acteurs = _Acteurs.OrderBy(item => item.SortOrder).ToList();
+            }
+            else
+            {
+                Acteurs = null;
+            }
 
-            return Acteurs.OrderBy(item => item.SortOrder).ToList();
+            return Acteurs;
         }
     }
 }
