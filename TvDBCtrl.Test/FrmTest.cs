@@ -108,7 +108,7 @@ namespace TestApp
                 {
                     foreach (var Lng in Tc.Ctrl_Languages)
                     {
-                        ViewType.Add(new TComboLng() { Name = Lng.englishName, Value = Lng });
+                        ViewType.Add(new TComboLng() { Name = Lng.name, Value = Lng });
                     }
                     this.CmbAPILng.DataSource       = ViewType;
                     this.CmbAPILng.DisplayMember    = "Name";

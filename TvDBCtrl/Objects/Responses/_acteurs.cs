@@ -6,6 +6,5 @@ namespace TvDBCtrl.Objects.Responses
     internal class _acteurs
     {
         public List<Acteur>     Data        { get; set; }
-        public JsonErrors       Errors      { get; set; }
     }
 }

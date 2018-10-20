@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Linq;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -24,12 +25,15 @@ namespace TvDBCtrl.Objects.Services
         /// <returns>List of Actors for the given Serie</returns>
         public async Task<List<Acteur>> GetActors(uint SeriesID)
         {
+            List<Acteur>            Acteurs     = new List<Acteur>();
             HttpResponseMessage     response    = await GetAsync(ApiConfig.BaseUrl + $"/series/{SeriesID}/actors");
             string                  jsonData    = await response.Content.ReadAsStringAsync();
-            List<Acteur>            result      = JsonConvert.DeserializeObject<_acteurs>(jsonData).Data;
+            _acteurs                result      = JsonConvert.DeserializeObject<_acteurs>(jsonData);
             JsonErrors              errors      = JsonConvert.DeserializeObject<_jsonerrors>(jsonData).Errors;
 
-            return result;
+            Acteurs.AddRange(result.Data);
+
+            return Acteurs.OrderBy(item => item.SortOrder).ToList();
         }
     }
 }
